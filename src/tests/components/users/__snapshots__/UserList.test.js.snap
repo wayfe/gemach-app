@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AccountList with accounts 1`] = `
+<div>
+  <AccountListItem
+    key="1"
+    account={
+      Object {
+        "address": "15465",
+        "address2": "d",
+        "city": "Montreal",
+        "id": "1",
+        "name": "Katz",
+        "phoneNum": "3473880059",
+        "state": "PA",
+        "transactions": Array [
+          Object {
+            "amount": 10000,
+            "date": "1970-01-04T00:00:00.000Z",
+            "id": "1a",
+            "note": "",
+            "payType": "cash",
+            "type": "withdrawal",
+          },
+          Object {
+            "amount": 14000,
+            "checkNo": 143243,
+            "date": "1970-01-01T00:00:00.000Z",
+            "id": "2a",
+            "isCleared": false,
+            "note": "this is a note",
+            "payType": "check",
+            "type": "deposit",
+          },
+          Object {
+            "amount": 18000,
+            "date": "1970-01-09T00:00:00.000Z",
+            "id": "3a",
+            "note": "",
+            "payType": "cash",
+            "type": "deposit",
+          },
+        ],
+        "zip": "11219",
+      }
+    }
+  />
+  <AccountListItem
+    key="2"
+    account={
+      Object {
+        "address": "65456",
+        "address2": "",
+        "city": "Brooklyn",
+        "id": "2",
+        "name": "Klein",
+        "phoneNum": "3473000722",
+        "state": "NY",
+        "transactions": Array [],
+        "zip": "11285",
+      }
+    }
+  />
+  <AccountListItem
+    key="3"
+    account={
+      Object {
+        "address": "65465",
+        "address2": "",
+        "city": "Lakewood",
+        "id": "3",
+        "name": "Kangaroo",
+        "phoneNum": "9175518533",
+        "state": "NJ",
+        "transactions": Array [],
+        "zip": "5645465",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`should render no accounts message 1`] = `
+<div>
+  <p>
+    No Accounts
+  </p>
+</div>
+`;

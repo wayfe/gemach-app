@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render balance with transaction balances 1`] = `
+<div>
+  <p>
+    Available Balance: 
+    $80.00
+  </p>
+  <p>
+    Current Balance: 
+    $220.00
+  </p>
+  <p>
+    Total Pending Transactions: 
+    $140.00
+  </p>
+</div>
+`;

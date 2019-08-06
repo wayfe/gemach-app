@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header>
+  <h1>
+    Gemach App
+  </h1>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    exact={true}
+    to="/"
+  >
+    Dashboard 
+  </NavLink>
+  <br />
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/accounts/create"
+  >
+    Add New Account
+  </NavLink>
+  <br />
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/transactions/create"
+  >
+    Add New Transactions
+  </NavLink>
+  <br />
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    to="/reconciliation"
+  >
+    Reconciliation
+  </NavLink>
+</header>
+`;
