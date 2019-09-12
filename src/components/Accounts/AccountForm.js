@@ -25,7 +25,9 @@ export default class AccountForm extends React.Component {
     onNumChange = (e) => {
         const inputName = e.target.name;
         const num = e.target.value;
-        this.setState(() => ({[inputName] : num}));
+        if (num.match(/^\d{1,}(\.\d{0,2})?$/)) {
+            this.setState(() => ({[inputName] : num}));
+        }
     }
 
     onSubmit = (e) => {
@@ -103,4 +105,4 @@ export default class AccountForm extends React.Component {
     }
 }
 
-// if (!num || num.match(/^\d{1,}(\.\d{0,2})?$/)) {
+// if (!num || ) {
