@@ -13,7 +13,7 @@ class BulkTransactionPage extends React.Component {
 
         this.state = {
             bulkTransactions: [defaultTransaction()],
-            type: "deposit"
+            type: "deposit",
         }
     }
 

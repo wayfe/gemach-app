@@ -12,8 +12,21 @@ export default class AccountForm extends React.Component {
             city: props.account ? props.account.city : "",
             state: props.account ? props.account.state : "",
             zip: props.account ? props.account.zip : "",
-            error: ""
+            error: []
         }
+    }
+
+    onNameChange = (e) => {
+        const re = /^([^0-9]*)$/;
+
+        const inputValue = e.target.value;
+
+        const inputName = e.target.name;
+
+        if (!inputValue || re.test(inputValue)) {
+            this.setState(() => ({[inputName] : inputValue}));
+        }
+
     }
 
     onInputChange = (e) => {
@@ -23,46 +36,72 @@ export default class AccountForm extends React.Component {
     }
 
     onNumChange = (e) => {
-        const inputName = e.target.name;
+
+        const re = /^[0-9\b]+$/;
+
+        const name = e.target.name;
+        
         const num = e.target.value;
-        if (num.match(/^\d{1,}(\.\d{0,2})?$/)) {
-            this.setState(() => ({[inputName] : num}));
+
+        if (!num || re.test(num)) {
+            this.setState(() => ({ [name] : num }));
         }
     }
 
     onSubmit = (e) => {
         e.preventDefault();
-        // this.setState(() => ({error: undefined}));
-        this.props.onSubmit({
-            name: this.state.name,
-            phoneNum: this.state.phoneNum,
-            address: this.state.address,
-            address2: this.state.address2,
-            city: this.state.city,
-            state: this.state.state,
-            zip: this.state.zip
+
+        const phoneRegex = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+
+        const error = [];
+        
+        ["name", "phoneNum", "address", "city", "state", "zip"].forEach((input) => {
+            if (input === "phoneNum" && !phoneRegex.test(this.state.phoneNum)) {
+                error.push(input)
+            } else if (!this.state[input]) {
+                error.push(input)
+            }
         });
+
+        if (error.length > 0) {
+            this.setState(() => ({error : error, errorMessage: "hmmm, something looks wrong here..."}));
+        } else {
+            this.props.onSubmit({
+                name: this.state.name,
+                phoneNum: this.state.phoneNum,
+                address: this.state.address,
+                address2: this.state.address2,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip
+            });
+        }
     }
 
     render () {
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
+                    {this.state.error.includes("name") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="name"
                         name="name"
                         autoFocus
                         value={this.state.name}
-                        onChange={this.onInputChange}
+                        onChange={this.onNameChange}
                     />
+
+                    {this.state.error.includes("phoneNum") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="phone"
                         name="phoneNum"
                         value={this.state.phoneNum}
-                        onChange={this.onInputChange}
+                        onChange={this.onNumChange}
                     />
+
+                    {this.state.error.includes("address") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="address"
@@ -77,20 +116,26 @@ export default class AccountForm extends React.Component {
                         value={this.state.address2}
                         onChange={this.onInputChange}
                     />
+
+                    {this.state.error.includes("city") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="city"
                         name="city"
                         value={this.state.city}
-                        onChange={this.onInputChange}
+                        onChange={this.onNameChange}
                     />
+
+                    {this.state.error.includes("state") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="state"
                         name="state"
                         value={this.state.state}
-                        onChange={this.onInputChange}
+                        onChange={this.onNameChange}
                     />
+
+                    {this.state.error.includes("zip") && <p>{this.state.errorMessage}</p>}
                     <input 
                         type="text"
                         placeholder="zip"
@@ -105,4 +150,4 @@ export default class AccountForm extends React.Component {
     }
 }
 
-// if (!num || ) {
+

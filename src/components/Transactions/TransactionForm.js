@@ -8,7 +8,7 @@ import "react-dates/lib/css/_datepicker.css";
 
 class TransactionForm extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
     
         this.state = {
             id: props.transaction ? props.transaction.id : uuid(),
@@ -20,8 +20,15 @@ class TransactionForm extends React.Component {
             note: props.transaction ? props.transaction.note : "",
             calendarFocused: false,
             buttonText: this.props.buttonText,
-            isCleared: props.transaction ? props.transaction.isCleared : false
+            isCleared: props.transaction ? props.transaction.isCleared : false,
+            clicked: false
         }
+
+    }
+
+    passToParent = (inputName, inputValue) => {
+        this.props.onChange && 
+        this.props.onChange({key: inputName, value: inputValue})
     }
     
     onPayTypeChange = (e) => {
@@ -35,9 +42,27 @@ class TransactionForm extends React.Component {
             })))
         });
         promise.then(() => {
-            this.props.onChange &&
-            this.props.onChange({key: "payType", value: e.target.value})
+            this.passToParent("payType", e.target.value)
         });
+    }
+
+    onCheckNoChange = (e) => {
+        const num = e.target.value;
+
+        if (!num || num.match(/^[0-9\b]+$/)) {
+            this.setState(() => ({checkNo : num}));
+            this.passToParent("checkNo", num);
+        }
+    }
+
+    onAmountChange = (e) => {
+        const amount = e.target.value;
+
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+            this.setState(() => ({ amount }));
+        }
+
+        this.passToParent("amount", amount);
     }
 
     onInputChange = (e) => {
@@ -48,8 +73,7 @@ class TransactionForm extends React.Component {
             resolve(this.setState(() => ({ [inputName] : inputValue })))
         });
         promise.then(() => {
-            this.props.onChange && 
-            this.props.onChange({key: inputName, value: inputValue})
+            this.passToParent(inputName, inputValue)
         });
     }
 
@@ -57,7 +81,7 @@ class TransactionForm extends React.Component {
         if (date) {
             this.setState(() =>({date}));      
         }
-        this.props.onChange && this.props.onChange({key: "date", value: date.valueOf()});
+        this.passToParent("date", date.valueOf());
     }
     
     onFocusChange = ({focused}) => {
@@ -65,43 +89,50 @@ class TransactionForm extends React.Component {
     }
 
     onClick = () => {
-        const transaction = {
-            id: this.state.id, 
-            amount: parseFloat(this.state.amount, 10) *100,
-            note: this.state.note,
-            date: this.state.date.valueOf(),
-            type: this.props.transaction ? this.props.transaction.type : this.props.type,
-            payType: this.state.payType,
-            isCleared: this.state.isCleared
+        this.setState(() => ({clicked : true}))
+
+        if (this.state.amount && this.state.payType === "cash" || this.state.checkNo) {
+
+            const transaction = {
+                id: this.state.id, 
+                amount: parseFloat(this.state.amount, 10) *100,
+                note: this.state.note,
+                date: this.state.date.valueOf(),
+                type: this.props.transaction ? this.props.transaction.type : this.props.type,
+                payType: this.state.payType,
+                isCleared: this.state.isCleared,
+                checkNo: this.state.checkNo
+            }
+            
+            this.props.onSubmit(transaction);
         }
-        
-        const transactionObj = transaction.payType === "cash" ? transaction
-        : {...transaction, checkNo: this.state.checkNo}
-    
-        this.props.onSubmit(transactionObj);
     }
     
-    render(props) {
+    render() {
         return (
             <div>
                 <select onChange={this.onPayTypeChange} defaultValue={this.state.payType}>
                     <option value="check">check</option>
                     <option value="cash">cash</option>
                 </select>
+
+                {(this.state.clicked || this.props.clicked) && (!this.state.checkNo && this.state.payType) === "check" && <p>required field!</p>}
                 <input 
                     type="text"
                     name="checkNo"
                     placeholder="check #"
                     value={this.state.checkNo}
                     disabled={this.state.disabled}
-                    onChange={this.onInputChange}
+                    onChange={this.onCheckNoChange}
                 />
+
+                {(this.state.clicked || this.props.clicked) && this.state.amount === "" && <p>required field!</p>}
                 <input 
                     type="text" 
                     placeholder="Amount" 
                     name="amount"
                     value={this.state.amount}
-                    onChange={this.onInputChange}
+                    onChange={this.onAmountChange}
                 />
                 <SingleDatePicker
                     date={this.state.date}
