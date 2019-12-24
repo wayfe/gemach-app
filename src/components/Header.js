@@ -1,20 +1,19 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {startLogout} from "../actions/auth";
 import {connect} from "react-redux";
 
 export const Header = ({startLogout}) => (
-    <header>
-        <h1>Gemach App</h1>
-        <NavLink to="/dashboard" activeClassName="is-active">Dashboard </NavLink>
-        <br/>
-        <NavLink to="/accounts/create" activeClassName="is-active">Add New Account</NavLink>
-        <br/>
-        <NavLink to="/transactions/create" activeClassName="is-active">Add New Transactions</NavLink>
-        <br/>
-        <NavLink to="/reconciliation" activeClassName="is-active">Reconciliation</NavLink>
-        <br/>
-        <button onClick={startLogout}>Logout</button>        
+    <header className="header">
+        <div className="content-container">
+            <div className="header__content">
+                <Link to="/dashboard"><p>Dashboard</p></Link>
+                <Link to="/accounts/create"><p>Add New Account</p></Link>
+                <Link to="/transactions/create"><p>Add New Transactions</p></Link>
+                <Link to="/reconciliation"><p>Reconciliation</p></Link>
+                <button className="logout-button" onClick={startLogout}>Logout</button>  
+            </div> 
+        </div>     
     </header>
 )
 

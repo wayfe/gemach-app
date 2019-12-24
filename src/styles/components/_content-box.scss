@@ -1,0 +1,14 @@
+.content-box {
+    margin-bottom: $l-size;
+    padding: $s-size 0;
+    background: white;
+    border-radius: 7px;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+     
+
+.content-box__text {
+    width: 85%;
+}

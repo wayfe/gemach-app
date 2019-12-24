@@ -1,0 +1,118 @@
+hr {
+    border: none;
+    border-top: 1px dotted grey;
+    color: grey;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.login-buttons {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    color: white;
+    text-align: center;
+
+    button {
+        width: 100%;
+        height: 40px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: $m-size;
+        font-weight: 200;
+        margin-bottom: 10px;
+
+    }
+
+    .login-button__google {
+        background: $google-red;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 35px;
+
+        img {
+            padding: 0 15px 0 0;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .login-button__google:hover {
+        background: darken($color: $google-red, $amount: 10%);
+    }
+    
+    .login-button__email {
+        background: $turquoise;
+        font-weight: bold;
+        margin-bottom: 35px;
+    }
+
+    .login-button__email:hover {
+        background: darken($color: $turquoise, $amount: 10%);
+    }
+}
+
+.login-signUp-buttons {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px 7px 0 0;
+    min-height: 50px;
+    align-items: center;
+    text-align: center;
+
+    .inactive, .active {
+        width: 50%;
+        cursor: pointer;
+        text-align: center;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+            min-width:100%;
+            min-height:100%;
+        }
+    }
+
+    .inactive {
+        box-shadow: inset 0 0 30px rgba(34,34,34,0.25);
+        background-color: rgba(248,250,251,0.5);
+        color: #5f7d95;
+    }
+
+    #sign-up {
+        border-radius: 7px 0 0 0;
+    }
+
+    #login {
+        border-radius: 0 7px 0 0;
+    }
+}
+
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    input {
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+        background-color: rgb(203, 215, 222);
+        margin-bottom: 2%;
+        text-indent: 15px;
+    }
+
+    input:focus {
+        outline: 0;
+    }
+}
+

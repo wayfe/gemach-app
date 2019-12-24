@@ -6,10 +6,16 @@ import Balance from "./Balance";
 const DashboardPage = () => (
     <div>
         <Balance />
-        <DataListFilters 
-            activeFilters={["text"]}
-        />
-        <AccountList />
+        <div className="content-container">
+            <div className="content-box">
+                <div className="content-box__text">
+                    <DataListFilters 
+                        activeFilters={["text"]}
+                    />
+                    <AccountList />
+                </div>
+            </div>
+        </div>
     </div>
 );
 

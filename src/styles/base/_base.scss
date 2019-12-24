@@ -3,8 +3,17 @@ html {
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 100;
+    font-style: normal;
     font-size: $m-size;
+    width: 100vw;
+    height: 100vh;
+    background: $dark-purple;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 button {

@@ -1,0 +1,21 @@
+.box-layout {
+    padding: 20%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.box-layout__box {
+    background: white;
+    border-radius: 7px;
+    width: 40vw;
+    height: 30vh;
+    color: $turquoise;
+    font-size: 1.8rem;
+}
+
+
+
+

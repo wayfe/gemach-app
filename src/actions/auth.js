@@ -5,7 +5,29 @@ export const login = (uid) => ({
   uid
 });
 
-export const startLogin = () => {
+export const startCreateUser = (email, password) => {
+  return () => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(error);
+    });
+  }
+}
+
+export const startLogin = (email, password) => {
+  return () => {
+    return firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+    });
+  }
+}
+
+export const startGoogleLogin = () => {
   return () => {
     return firebase.auth().signInWithPopup(googleAuthProvider);
   };

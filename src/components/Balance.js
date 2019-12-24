@@ -5,10 +5,16 @@ import {getBal, getPendingBal} from "../selectors/balance";
 
 
 const Balance = (props) => (
-    <div>
-        <p>Available Balance: {numeral((props.totalBalance - props.pendingBalance) /100).format('$0,0.00')}</p>
-        <p>Current Balance: {numeral(props.totalBalance /100).format('$0,0.00')}</p>
-        <p>Total Pending Transactions: {numeral(props.pendingBalance /100).format('$0,0.00')}</p>
+    <div className="content-container">
+        <div className="content-box">
+            <div className="content-box__text">
+                <div className="balance">
+                    <div>Available Balance: <p className="balance-numeral">{numeral((props.totalBalance - props.pendingBalance) /100).format('$0,0.00')}</p></div>
+                    <div>Current Balance: <p className="balance-numeral">{numeral(props.totalBalance /100).format('$0,0.00')}</p></div>
+                    <div>Total Pending Transactions: <p className="balance-numeral">{numeral(props.pendingBalance /100).format('$0,0.00')}</p></div>
+                </div>
+            </div>
+        </div>
     </div>
 )
 

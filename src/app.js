@@ -9,7 +9,7 @@ import {startSetAccounts} from "./actions/accounts";
 import {startLogin, startLogout, login, logout} from "./actions/auth";
 
 
-import "normalize.css/normalize.css";
+// import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 
 const store = configureStore();

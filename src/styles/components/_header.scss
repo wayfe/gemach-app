@@ -1,0 +1,60 @@
+.header {
+    background: $turquoise;
+    margin: 0 0 0 0;
+    width: 100vw;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $l-size;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+
+    p {
+        text-decoration: none;
+        color: white;
+        text-decoration-line: none;
+        
+        font-weight: 300;
+        
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+    }
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: pointer;
+        text-decoration: none;
+        height: 40px;
+    }
+
+    .logout-button {
+        border: none;
+        outline: none;
+        background: $turquoise;
+        color: white;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        font-size: $m-size;
+        height: 40px;
+
+    }
+
+    p:hover{
+        background-color: #11b8cf;
+    }
+
+    button:hover {
+        background-color: $google-red;
+    }
+
+    
+}
+
+
+
+
