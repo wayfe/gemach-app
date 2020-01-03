@@ -1,14 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
 import AccountForm from "./AccountForm";
-import { addAccount, startAddAccount } from "../../actions/accounts";
+import { startAddAccount } from "../../actions/accounts";
 import uuid from "uuid";
 
 const AddAccountPage = (props) => (
     <div className="content-container">
+        <div className="toggle-collapse">
+            <h3>Add Account:</h3>
+        </div>
         <div className="content-box">
             <div className="content-box__text">
-                <h1 className="content-box_title">Add Account:</h1>
                 <AccountForm 
                     onSubmit={(account) => {
                         const newAccount = {id: uuid(), ...account}
@@ -18,7 +20,7 @@ const AddAccountPage = (props) => (
                     }}
                 />
             </div>
-        </div>
+        </div>   
     </div>
 );
 

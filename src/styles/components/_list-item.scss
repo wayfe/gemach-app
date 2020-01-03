@@ -1,0 +1,43 @@
+.list-item-info {
+    * {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: black;
+    }
+
+    hr {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+    }
+}
+
+.link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 30px 0 50px;
+}
+
+.list-item-info:first-of-type {
+    hr {
+        display: none;
+    }
+}
+
+.list-item-info:hover {
+    border-radius: 50px;
+    background: $light-blue;
+    min-height: 100%;
+
+    hr {
+        border-color: transparent;
+    }
+}
+
+.item-list {
+    .list-item-info:hover + div {
+        hr {
+            border-color: transparent;
+        }
+    }
+}

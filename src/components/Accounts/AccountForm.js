@@ -80,70 +80,87 @@ export default class AccountForm extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="account-form">
                 <form onSubmit={this.onSubmit}>
-                    {this.state.error.includes("name") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="name"
-                        name="name"
-                        autoFocus
-                        value={this.state.name}
-                        onChange={this.onNameChange}
-                    />
+                    <div>
+                        {this.state.error.includes("name") && <p>{this.state.errorMessage}</p>}
+                        <label>Name</label>
+                        <input 
+                            type="text"
+                            name="name"
+                            autoFocus
+                            value={this.state.name}
+                            onChange={this.onNameChange}
+                        />
+                    </div>
 
-                    {this.state.error.includes("phoneNum") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="phone"
-                        name="phoneNum"
-                        value={this.state.phoneNum}
-                        onChange={this.onNumChange}
-                    />
+                    <div>
+                        {this.state.error.includes("phoneNum") && <p>{this.state.errorMessage}</p>}
+                        <label>Phone</label>
+                        <input 
+                            type="text"
+                            name="phoneNum"
+                            value={this.state.phoneNum}
+                            onChange={this.onNumChange}
+                        />
+                    </div>
+                    
 
-                    {this.state.error.includes("address") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="address"
-                        name="address"
-                        value={this.state.address}
-                        onChange={this.onInputChange}
-                    />
-                    <input 
-                        type="text"
-                        placeholder="address line 2"
-                        name="address2"
-                        value={this.state.address2}
-                        onChange={this.onInputChange}
-                    />
+                    <div>
+                        {this.state.error.includes("address") && <p>{this.state.errorMessage}</p>}
+                        <label>Street Address</label>
+                        <input 
+                            type="text"
+                            name="address"
+                            value={this.state.address}
+                            onChange={this.onInputChange}
+                        />
+                    </div>
+                   
+                    <div>
+                        <label>Street Address Line 2 <span className="optional">optional</span></label>
+                        <input 
+                            type="text"
+                            name="address2"
+                            value={this.state.address2}
+                            onChange={this.onInputChange}
+                        />
+                    </div>
 
-                    {this.state.error.includes("city") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="city"
-                        name="city"
-                        value={this.state.city}
-                        onChange={this.onNameChange}
-                    />
-
-                    {this.state.error.includes("state") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="state"
-                        name="state"
-                        value={this.state.state}
-                        onChange={this.onNameChange}
-                    />
-
-                    {this.state.error.includes("zip") && <p>{this.state.errorMessage}</p>}
-                    <input 
-                        type="text"
-                        placeholder="zip"
-                        name="zip"
-                        value={this.state.zip}
-                        onChange={this.onNumChange}
-                    />
-                    <button>Save</button>
+                    <div>
+                        {this.state.error.includes("city") && <p>{this.state.errorMessage}</p>}
+                        <label>City</label>
+                        <input 
+                            type="text"
+                            name="city"
+                            value={this.state.city}
+                            onChange={this.onNameChange}
+                        />
+                    </div>
+                    
+                    <div>
+                        {this.state.error.includes("state") && <p>{this.state.errorMessage}</p>}
+                        <label>State</label>
+                        <input 
+                            type="text"
+                            name="state"
+                            value={this.state.state}
+                            onChange={this.onNameChange}
+                        />
+                    </div>
+                    
+                    <div>
+                        {this.state.error.includes("zip") && <p>{this.state.errorMessage}</p>}
+                        <label>Zip</label>
+                        <input 
+                            type="text"
+                            name="zip"
+                            value={this.state.zip}
+                            onChange={this.onNumChange}
+                        />
+                    </div>
+                    
+                    <button className="btn-big">Save</button>
                 </form>
             </div>
         );

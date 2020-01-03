@@ -8,11 +8,10 @@
 }
 
 .box-layout__box {
-    background: white;
+    background: $white;
     border-radius: 7px;
     width: 40vw;
     height: 30vh;
-    color: $turquoise;
     font-size: 1.8rem;
 }
 

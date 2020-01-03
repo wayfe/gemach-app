@@ -50,13 +50,17 @@ class DataListFilters extends React.Component{
     render() {
         return (
             <div>
-                {this.state.activeFilters.includes("text") && 
-                    <input 
-                        type="text" 
-                        value={this.props.filters.text} 
-                        onChange={(e) => {this.props.setTextFilter(e.target.value);}}
-                        placeholder="search by name"
-                    />
+                {this.state.activeFilters.includes("text") &&
+                    <div>
+                        <div className="input-bar">
+                            <input 
+                                type="text" 
+                                value={this.props.filters.text} 
+                                onChange={(e) => {this.props.setTextFilter(e.target.value);}}
+                                placeholder="search accounts by name"
+                            />
+                        </div>
+                    </div> 
                 }    
                 {this.state.activeFilters.includes("transactionFilters") &&
                     <div>

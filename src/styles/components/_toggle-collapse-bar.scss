@@ -1,0 +1,19 @@
+.toggle-collapse {
+    background: $bright-blue;
+    color: $white;
+    font-weight: bold;
+    font-size: $m-size;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    border-radius:  7px 7px 0 0;
+    padding: 0 20px 0 20px;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.collapsed {
+    border-radius: 7px;
+    margin-bottom: $l-size;
+}

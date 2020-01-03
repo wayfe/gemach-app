@@ -10,7 +10,7 @@ class LoginForm extends React.Component {
         this.state = {
             email: "",
             password: "",
-            type: "sign in"
+            type: "sign-in"
         }
     }
 
@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
         const email = this.state.email.toString();
         const password = this.state.password.toString();
 
-        if (this.state.type === "sign in") {
+        if (this.state.type === "sign-in") {
             this.props.dispatch(startLogin(email, password));
         } else {
             this.props.dispatch(startCreateUser(email, password));
@@ -43,16 +43,16 @@ class LoginForm extends React.Component {
             <div>
                 <div className="login-signUp-buttons">
                     <div 
-                        className={this.state.type === "sign in" ? "inactive" : "active"} 
+                        className={this.state.type === "sign-in" ? "inactive" : "active"} 
                         onClick={this.onClick}
-                        id="sign up"
+                        id="sign-up"
                     >
                         Sign up
                     </div>
                     <div 
-                        className={this.state.type === "sign up" ? "inactive" : "active"}
+                        className={this.state.type === "sign-up" ? "inactive" : "active"}
                         onClick={this.onClick}
-                        id="sign in"
+                        id="sign-in"
                     >
                         Sign in
                     </div>
@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
                         <GoogleLoginForm type={this.state.type}/>
                         <form onSubmit={this.onSubmit}>
                             <hr/>
-                            <div className="login-inputs">
+                            <div className="input-bar">
                                 <input 
                                 type="text"
                                 placeholder="email"
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
                                 />
                             </div>
                             <div className="login-buttons">
-                                <button className="login-button__email">{this.state.type.charAt(0).toUpperCase() + this.state.type.substring(1)}</button>
+                                <button className="btn-big">{this.state.type.charAt(0).toUpperCase() + this.state.type.substring(1)}</button>
                             </div>
                         </form>
                     </div>
