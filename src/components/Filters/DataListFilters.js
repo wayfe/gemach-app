@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {setTextFilter, sortByAmount, sortByDate, setEndDate, setStartDate, setTypeFilter} from "../../actions/filters";
 import {DateRangePicker} from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
+import moment from "moment";
 
 class DataListFilters extends React.Component{
     constructor(props){
@@ -47,19 +48,24 @@ class DataListFilters extends React.Component{
         })
     }
 
+    componentDidMount = () => {
+        this.props.setTextFilter("");
+        this.props.sortByDate();
+        this.props.setStartDate(moment().startOf("month"));
+        this.props.setEndDate(moment().endOf("month"));
+    }
+
     render() {
         return (
             <div>
                 {this.state.activeFilters.includes("text") &&
-                    <div>
-                        <div className="input-bar">
-                            <input 
-                                type="text" 
-                                value={this.props.filters.text} 
-                                onChange={(e) => {this.props.setTextFilter(e.target.value);}}
-                                placeholder="search accounts by name"
-                            />
-                        </div>
+                    <div className="input-bar">
+                        <input 
+                            type="text" 
+                            value={this.props.filters.text}
+                            onChange={(e) => {this.props.setTextFilter(e.target.value);}}
+                            placeholder="search accounts by name"
+                        />
                     </div> 
                 }    
                 {this.state.activeFilters.includes("transactionFilters") &&

@@ -64,19 +64,19 @@ class LoginForm extends React.Component {
                             <hr/>
                             <div className="input-bar">
                                 <input 
-                                type="text"
-                                placeholder="email"
-                                name="email"
-                                autoFocus
-                                value={this.state.email}
-                                onChange={this.onInputChange}
+                                    type="text"
+                                    placeholder="email"
+                                    name="email"
+                                    autoFocus
+                                    value={this.state.email}
+                                    onChange={this.onInputChange}
                                 />
                                 <input 
-                                type="password"
-                                placeholder="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.onInputChange}
+                                    type="password"
+                                    placeholder="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.onInputChange}
                                 />
                             </div>
                             <div className="login-buttons">
