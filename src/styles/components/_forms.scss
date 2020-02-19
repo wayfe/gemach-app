@@ -19,6 +19,10 @@
             
         }
 
+        input:focus {
+            border: none;
+        }
+
         button {
             min-height: 40px;
             width: 300px;

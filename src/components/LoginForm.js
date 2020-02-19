@@ -41,7 +41,7 @@ class LoginForm extends React.Component {
     render () {
         return (
             <div>
-                <div className="login-signUp-buttons">
+                <div className="login-signUp-select">
                     <div 
                         className={this.state.type === "sign-in" ? "inactive" : "active"} 
                         onClick={this.onClick}
@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
                         <GoogleLoginForm type={this.state.type}/>
                         <form onSubmit={this.onSubmit}>
                             <hr/>
-                            <div className="input-bar">
+                            <div className="input-bar rounded-corners">
                                 <input 
                                     type="text"
                                     placeholder="email"
@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
                                     onChange={this.onInputChange}
                                 />
                             </div>
-                            <div className="login-buttons">
+                            <div className="rounded-buttons">
                                 <button className="btn-big">{this.state.type.charAt(0).toUpperCase() + this.state.type.substring(1)}</button>
                             </div>
                         </form>

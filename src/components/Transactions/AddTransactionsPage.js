@@ -3,6 +3,7 @@ import TransactionForm from "./TransactionForm";
 import {connect} from "react-redux";
 import { getBal } from "../../selectors/balance";
 import {startAddTransaction} from "../../actions/accounts";
+// import TransactionImgUpload from "./TransactionImgUpload";
 
 
 class AddTransactionsPage extends React.Component {

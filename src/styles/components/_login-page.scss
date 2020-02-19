@@ -14,61 +14,7 @@ hr {
     height: 5px;
 }
 
-.login-buttons {
-    display: flex;
-    width: 100%;
-    margin-top: 5px;
-    color: $white;
-    text-align: center;
-
-    button {
-        width: 100%;
-        height: 40px;
-        border-radius: 50px;
-        outline: none;
-        border: none;
-        outline: none;
-        border: none;
-        color: white;
-        font-size: $m-size;
-        font-weight: 200;
-        margin-bottom: 10px;
-
-    }
-
-    .login-button__google {
-        background: $google-red;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-top: 35px;
-
-        img {
-            padding: 0 15px 0 0;
-        }
-
-        span {
-            font-weight: bold;
-        }
-    }
-
-    .login-button__google:hover {
-        background: darken($color: $google-red, $amount: 10%);
-    }
-    
-    .btn-big {
-        background: $bright-blue;
-        font-weight: bold;
-        margin-bottom: 35px;
-    }
-
-    .btn-big:hover {
-        background: darken($color: $bright-blue, $amount: 10%);
-    }
-}
-
-.login-signUp-buttons {
+.login-signUp-select {
     display: flex;
     justify-content: space-between;
     border-radius: 7px 7px 0 0;

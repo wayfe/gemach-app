@@ -80,9 +80,9 @@ export default class AccountForm extends React.Component {
 
     render () {
         return (
-            <div className="account-form">
+            <div className="account-form input-bar">
                 <form onSubmit={this.onSubmit}>
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("name") && <p>{this.state.errorMessage}</p>}
                         <label>Name</label>
                         <input 
@@ -94,7 +94,7 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("phoneNum") && <p>{this.state.errorMessage}</p>}
                         <label>Phone</label>
                         <input 
@@ -106,7 +106,7 @@ export default class AccountForm extends React.Component {
                     </div>
                     
 
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("address") && <p>{this.state.errorMessage}</p>}
                         <label>Street Address</label>
                         <input 
@@ -117,7 +117,7 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
                    
-                    <div>
+                    <div className="form-field">
                         <label>Street Address Line 2 <span className="optional">optional</span></label>
                         <input 
                             type="text"
@@ -127,7 +127,7 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("city") && <p>{this.state.errorMessage}</p>}
                         <label>City</label>
                         <input 
@@ -138,7 +138,7 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
                     
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("state") && <p>{this.state.errorMessage}</p>}
                         <label>State</label>
                         <input 
@@ -149,7 +149,7 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
                     
-                    <div>
+                    <div className="form-field">
                         {this.state.error.includes("zip") && <p>{this.state.errorMessage}</p>}
                         <label>Zip</label>
                         <input 
@@ -160,7 +160,9 @@ export default class AccountForm extends React.Component {
                         />
                     </div>
                     
-                    <button className="btn-big">Save</button>
+                    <div className="rounded-buttons">
+                        <button className="btn-big">Save</button>
+                    </div>
                 </form>
             </div>
         );
