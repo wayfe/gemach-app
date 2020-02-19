@@ -3,6 +3,8 @@ import TransactionForm from "./TransactionForm";
 import {connect} from "react-redux";
 import { getBal } from "../../selectors/balance";
 import {startAddTransaction} from "../../actions/accounts";
+import {withRouter} from "react-router-dom";
+
 // import TransactionImgUpload from "./TransactionImgUpload";
 
 
@@ -60,11 +62,13 @@ class AddTransactionsPage extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-    const transactions = props.account.transactions;
+    const account =  state.accounts.find((account) => account.id === props.match.params.id)
+    const transactions = account.transactions;
 
     return {
-        totalBalance: getBal(transactions),
+        account: account,
+        totalBalance: getBal(transactions)
     }
 }
 
-export default connect(mapStateToProps)(AddTransactionsPage);
+export default withRouter(connect(mapStateToProps)(AddTransactionsPage));

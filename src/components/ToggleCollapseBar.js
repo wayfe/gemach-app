@@ -30,6 +30,7 @@ class ToggleCollapseBar extends Component {
                         <div className="content-box__text">
                             <DynamicComponent 
                                 tag={this.props.tag}
+                                props={this.props}
                             />
                         </div>
                     </div>
