@@ -36,7 +36,7 @@
     "immer": "^2.1.4",
     "moment": "2.18.1",
     "multer": "^1.4.2",
-    "node-sass": "^4.9.2",
+    "node-sass": "^4.13.1",
     "normalize.css": "7.0.0",
     "numeral": "^2.0.6",
     "raf": "3.3.2",
